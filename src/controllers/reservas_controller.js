@@ -6,7 +6,7 @@ import Vehiculo from '../models/Vehiculos.js';
 export const crearReserva = async (req, res) => {
   if (Object.values(req.body).includes("")) {
     return res.status(400).json({ message: "Lo sentimos, no puedes dejar campos vacíos." });
-  }
+  } 
 
   try {
     const { codigo, descripcion, id_cliente, id_vehiculo } = req.body;

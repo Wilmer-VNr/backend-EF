@@ -20,8 +20,21 @@ if (!verificarPassword) return res.status(400).json({message: "Contraseña incor
   res.status(200).json({usuarioBDD,token});
 
   }
+
+  // Método para mostrar el perfil 
+const perfil =(req,res)=>{
+  delete req.usuarioBDD.token
+  delete req.usuarioBDD.createdAt
+  delete req.usuarioBDD.updatedAt
+  delete req.usuarioBDD.__v
+  res.status(200).json(req.usuarioBDD)
+}
+
+
+
   export { 
-  login
+  login,
+  perfil
 
   };
 
