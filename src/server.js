@@ -2,17 +2,17 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
-import routerPaciente from './routers/pacientes_router.js'
-import especialidadRoutes from './routers/especialidades_router.js';
-import citaRouter from './routers/citas_router.js';
-import userRouter from './routers/usuarios_router.js';
+import clienteRoutes from './routers/clientes_router.js'
+import vehiculoRoutes from './routers/vehiculos_router.js';
+import reservaRoutes from './routers/reservas_router.js';
+import userRoutes from './routers/usuarios_router.js';
 
 //Inicializaciones
 const app = express()
 dotenv.config()
 
 //Configuraciones
-app.set('port',process.env.PORT || 3000)
+app.set('port',process.env.PORT || 4000)
 app.use(cors())
 
 
@@ -27,10 +27,10 @@ app.get('/',(req,res)=>{
     res.send("Server online 🐱‍🏍")})
 
 
-app.use('/api/',routerPaciente)
-app.use('/api/',especialidadRoutes);
-app.use('/api/',citaRouter);
-app.use('/api/',userRouter);
+app.use('/api/',clienteRoutes)
+app.use('/api/',vehiculoRoutes);
+app.use('/api/',reservaRoutes);
+app.use('/api/',userRoutes);
 
 //Rutas no encontradas
 app.use((req,res)=>res.status(404).send("Endpoint no encontrado - 404"))

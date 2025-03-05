@@ -6,13 +6,13 @@ const usuarioSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        maxlength: 20
+       
     },
     apellido: {
         type: String,
         required: true,
         trim: true,
-        maxlength: 20
+       
     },
     email: {
         type: String,

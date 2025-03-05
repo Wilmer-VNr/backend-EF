@@ -1,27 +1,27 @@
 import { Schema, model } from 'mongoose';
 
-const citaSchema = new Schema({
+const reservaSchema = new Schema({
     codigo: {
         type: String,
         required: true,
         unique: true,
         trim: true,
-        maxlength: 20
+       
     },
     descripcion: {
         type: String,
-        maxlength: 255
+        
     },
-    id_paciente: {
+    id_cliente: {
         type: Schema.Types.ObjectId,
-        ref: 'Paciente',
+        ref: 'Cliente',
         required: true
     },
-    id_especialidad: {
+    id_vehiculo: {
         type: Schema.Types.ObjectId,
-        ref: 'Especialidad',
+        ref: 'Vehiculo',
         required: true
     }
 }, { timestamps: true });
 
-export default model('Cita', citaSchema);
+export default model('Reserva', reservaSchema);
