@@ -4,6 +4,9 @@ import Especialidad from '../models/Especialidades.js';
 
 // Crear una nueva cita
 export const crearCita = async (req, res) => {
+    if (Object.values(req.body).includes("")) {
+        return res.status(400).json({ message: "Lo sentimos, no puedes dejar campos vacíos." });
+    }
     try {
         const { codigo, descripcion, id_paciente, id_especialidad } = req.body;
 

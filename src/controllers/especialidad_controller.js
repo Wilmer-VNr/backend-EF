@@ -18,6 +18,10 @@ const obtenerEspecialidades = async (req, res) => {
 
 // Registrar una nueva especialidad
 const registrarEspecialidad = async (req, res) => {
+
+  if (Object.values(req.body).includes("")) {
+    return res.status(400).json({ message: "Lo sentimos, no puedes dejar campos vacíos." });
+}
   const { codigo, nombre, descripcion } = req.body;
 
   try {

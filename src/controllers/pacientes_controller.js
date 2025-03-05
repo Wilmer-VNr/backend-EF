@@ -19,6 +19,10 @@ const obtenerPacientes = async (req, res) => {
 
 // Registrar un nuevo paciente
 const registrarPaciente = async (req, res) => {
+
+  if (Object.values(req.body).includes("")) {
+    return res.status(400).json({ message: "Lo sentimos, no puedes dejar campos vacíos." });
+}
   const { nombre, apellido, fecha_nacimiento, genero, ciudad, direccion, telefono, email } = req.body;
 
   try {
@@ -44,7 +48,7 @@ const registrarPaciente = async (req, res) => {
 
     await nuevoPaciente.save();
 
-    return res.status(201).json({
+    return res.status(200).json({
       msg: 'Paciente registrado exitosamente',
       paciente: nuevoPaciente,
     });
